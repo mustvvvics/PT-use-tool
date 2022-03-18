@@ -58,6 +58,9 @@ https://github.com/chaifeng/ufw-docker
 # update and install some requirement and open the ufw
 apt update -y && apt upgrade -y &&apt install vim sudo tmux ufw git curl wget zip unzip net-tools -y && ufw --force enable && echo finish!
 
+# 下载本项目到/root
+git clone https://github.com/mustvvvics/PT-use-tool.git
+
 # set alias command 设置alias指令，方便使用脚本
 echo "alias ptuse='/root/PT_use/ptuse.sh'" >> /root/.bashrc && source /root/.bashrc
 ```
