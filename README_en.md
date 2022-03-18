@@ -1,38 +1,26 @@
-# PT_use
+# PT_use_en
 
+## 0 Summary
 
+A convenient PT use deployment.
 
+Automatically complete the following functions：
 
+1.Download and Seeding by qbittorrent-nox.
 
-## 0 介绍
+2.set Domain Name and ssl for your qbittorrent-nox serive
 
-（水平有限脚本粗糙, 作为学习记录）
+3.RSS by docker flexget.
 
-功能已验证服务器类型：
+4.Uploads and downloads with BaiduPCS-Go.
 
-| vendor | info                                 |
-| ------ | ------------------------------------ |
-| buyvm  | Debian 11 , amd64 , x86_64 GNU/Linux |
-|        |                                      |
+5.Build webdav by FolderMagic.
 
+6.To make seeds by transmission-create.
 
-一个便捷的pt使用部署。自动完成以下功能： 
+## 1 Open source tools involved
 
-1.使用qbittorrent-nox进行下载和做种。
-
-2.设置域名与ssl证书
-
-3.使用docker版本的flexget进行rss订阅。
-
-4.安装BaiduPCS-Go进行百度云盘上传下载。
-
-5.使用FolderMagic搭建webdav服务。完成服务器硬盘到本地的映射。
-
-6.使用transmission-create制作种子。
-
-## 1 涉及的开源工具
-
-十分感谢优秀开源者的贡献。
+Thanks to the excellent open source contributors.
 
 https://github.com/userdocs/qbittorrent-nox-static
 
@@ -48,47 +36,43 @@ https://github.com/FastGitORG/document
 
 https://github.com/chaifeng/ufw-docker
 
-## 2 部署使用
+## 2 USE
 
-### 2.1 一些准备
+### 2.1 Some preparation
 
-!请切换到root用户使用
+Please use root !
 
 ```shell
 # update and install some requirement and open the ufw
 apt update -y && apt upgrade -y &&apt install vim sudo tmux ufw git curl wget zip unzip net-tools -y && ufw --force enable && echo finish!
 
-# set alias command 设置alias指令，方便使用脚本
+# set alias command to set alias
 echo "alias ptuse='/root/PT_use/ptuse.sh'" >> /root/.bashrc && source /root/.bashrc
 ```
 
-### 2.2 使用指南
+### 2.2 Use guide
 
-#### 2.2.1 安装qbittorrent-nox  
-
-
+#### 2.2.1 install qbittorrent-nox  
 
 ```shell
-# default install   默认使用 9999 and /root/Download/qbittorrent
+# default install   default use 9999 and /root/Download/qbittorrent
 ptuse -bq
 
-# use your port and save dir 
+# if use your port and save dir 
 ptuse -p 11111 -s /root/Download -q
 ```
 
+Now you can enter qbittorrent Web UI by login 'ip:port'. The default account is admin , password is adminadmin . 
 
+Please change the password as soon as possible.
 
-现在你可以通过访问 ip:port ，来进入qbittorrent Web UI 。**默认账号admin 密码adminadmin 。**
-
-**请立刻登录并修改账号密码。**
-
-#### 2.2.2 为qbittorrent Web UI 设置域名与ssl证书 
+#### 2.2.2 set Domain Name and SSL for your qbittorrent-nox serive
 
 
 
-**！！先进行域名解析。**
+**！！First of all,please do DNS(domain name resolution) .**
 
-**！！并将ssl证书的zip压缩包(nginx 版本)，使用XFTP等软件，或者使用scp命令，放在服务器的 /root/PT_use/config/nginxconfig/cert/certqbittorrent/**
+**！！And then put your SSL .zip file (nginx version) in   /root/PT_use/config/nginxconfig/cert/certqbittorrent/**
 
 
 
@@ -96,61 +80,53 @@ ptuse -p 11111 -s /root/Download -q
 # default set 
 ptuse -b -z your_public_zones
 
-# use your port
+# if use your port
 ptuse -p 11111 -n -z your_public_zones
 ```
 
-现在你可以通过访问你设置域名，来进入qbittorrent Web UI。
+Now you can enter qbittorrent Web UI by login with 'your_public_zones'.
 
-#### 2.2.3 docker flexget 的安装
+#### 2.2.3 docker flexget install
 
 ```shell
 # docker flexget install
 ptuse -d -f your_flexgetwebui_passward
 ```
 
-现在你可以通过访问 ip:5050 来进入flexget 设置 RSS 的页面进行rss的配置。默认账号为flexget，密码为你自己设置的your_flexgetwebui_passward。
+Now you can enter flexget to set your RSS rules by login ip:5050。
 
-**同时记得修改qbittorrent Web UI 中的监控文件夹地址为：/root/.config/flexget/data**
+The default account is flexget, password is your_flexgetwebui_passward.
 
-
-
-#### 2.2.4 BaiduPCS-Go 安装
+#### 2.2.4 BaiduPCS-Go install
 
 ```shell
 # BaiduPCS-Go install
 ptuse --baidu
 ```
 
-使用指南 / operating guide : https://github.com/qjfoidnh/BaiduPCS-Go
+operating guide : https://github.com/qjfoidnh/BaiduPCS-Go
 
-
-
-#### 2.2.5 FolderMagic 安装
-
-请设置好自己的共享位置以及账号密码
+#### 2.2.5 FolderMagic install
 
 ```shell
 # FolderMagic install
 ptuse -P 10001 -S /root/share -A FolderMagic_account -m FolderMagic_passward
 ```
 
+If you need domain name access,
 
+then
 
-如果需要用到域名访问。那么，
+**！！First of all,please do DNS(domain name resolution) .**
 
-**！！先进行域名解析。**
-
-**！！并将ssl证书的zip压缩包(nginx 版本)，放在服务器的 /root/PT_use/config/nginxconfig/cert/certFolderMagic**
-
-注意与上面的qbittorrent 位置不同
+**！！And then put your SSL .zip file (nginx version) in   /root/PT_use/config/nginxconfig/cert/certFolderMagic**
 
 ```shell
-# set FolderMagic
+# set FolderMagic Domain Name and SSL
 ptuse -P 10001 -Z your_public_zones
 ```
 
-#### 2.2.6 卸载remove
+#### 2.2.6 remove
 
 ```shell
 # remove qbittorrent
@@ -176,7 +152,9 @@ ptuse -P 10001 --remove-m
 ptuse --remove-trans
 ```
 
-## 3 功能选项
+## 3 Option
+
+
 
 ```shell
 -b, --basic-install                      basic config,port:9999，save directory:/root/Download/qbittorrent

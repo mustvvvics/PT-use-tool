@@ -1,0 +1,13 @@
+[Unit]
+Description=FolderMagic
+After=network.target
+
+[Service]
+Type=simple
+Restart=on-failure
+RestartSec=5s
+ExecStart=/root/FolderMagic/FolderMagic -b 127.0.0.1:10000 -r /root/Drive -a "account:passward"
+ExecReload=/root/FolderMagic/FolderMagic reload -b 127.0.0.1:10000 -r /root/Drive -a "account:passward"
+
+[Install]
+WantedBy=multi-user.target

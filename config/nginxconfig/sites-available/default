@@ -1,0 +1,15 @@
+# Default server configuration
+server {
+        listen 80 default_server;
+        listen [::]:80 default_server;
+        # let default_server return 444
+        return 404;
+
+        root /var/www/html;
+        index index.html index.htm index.nginx-debian.html;
+        server_name _;
+
+        location / {
+                try_files $uri $uri/ =404;
+        }
+}
