@@ -183,7 +183,7 @@ ptuse --remove-trans
 
 -p, --qbittorrent-port                   set qbittorrent-nox port, eg: ptuse -p 9999
 
--s, --qbittorrent-save      			 set qbittorrent-nox save directory, eg: ptuse -s /root/Download/qbittorrent
+-s, --qbittorrent-save                   set qbittorrent-nox save directory, eg: ptuse -s /root/Download/qbittorrent
 
 -q, --qbittorrent-install                install qbittorrent-nox
 
