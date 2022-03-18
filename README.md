@@ -1,4 +1,4 @@
-# PT_use
+# PT-use-tool
 
 
 
@@ -62,7 +62,7 @@ apt update -y && apt upgrade -y &&apt install vim sudo tmux ufw git curl wget zi
 git clone https://github.com/mustvvvics/PT-use-tool.git
 
 # set alias command 设置alias指令，方便使用脚本
-echo "alias ptuse='/root/PT_use/ptuse.sh'" >> /root/.bashrc && source /root/.bashrc
+echo "alias ptuse='/root/PT-use-tool/ptuse.sh'" >> /root/.bashrc && source /root/.bashrc
 ```
 
 ### 2.2 使用指南
@@ -91,7 +91,7 @@ ptuse -p 11111 -s /root/Download -q
 
 **！！先进行域名解析。**
 
-**！！并将ssl证书的zip压缩包(nginx 版本)，使用XFTP等软件，或者使用scp命令，放在服务器的 /root/PT_use/config/nginxconfig/cert/certqbittorrent/**
+**！！并将ssl证书的zip压缩包(nginx 版本)，使用XFTP等软件，或者使用scp命令，放在服务器的 /root/PT-use-tool/config/nginxconfig/cert/certqbittorrent/**
 
 
 
@@ -144,7 +144,7 @@ ptuse -P 10001 -S /root/share -A FolderMagic_account -m FolderMagic_passward
 
 **！！先进行域名解析。**
 
-**！！并将ssl证书的zip压缩包(nginx 版本)，放在服务器的 /root/PT_use/config/nginxconfig/cert/certFolderMagic**
+**！！并将ssl证书的zip压缩包(nginx 版本)，放在服务器的 /root/PT-use-tool/config/nginxconfig/cert/certFolderMagic**
 
 注意与上面的qbittorrent 位置不同
 

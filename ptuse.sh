@@ -11,7 +11,7 @@ version,help -- "$@"`
 # define function
 function usage() {
 echo "Usage:"
-echo "PT_use COMMAND"
+echo "PT-use-tool COMMAND"
 echo ""
 echo "-b, --basic-install                      basic config,port:9999，save directory:/root/Download/qbittorrent"
 echo ""
@@ -92,7 +92,7 @@ do
         # install for qbittorrent
       -q|--qbittorrent-install)
                 ufw allow $qbittorrent_port/tcp
-                cp /root/PT_use/config/qbittorrent-nox.service /etc/systemd/system/qbittorrent-nox.service
+                cp /root/PT-use-tool/config/qbittorrent-nox.service /etc/systemd/system/qbittorrent-nox.service
                 sed -i "6s/9999/$qbittorrent_port/1;6s?/root/Download/qbittorrent?$savepath?1" /etc/systemd/system/qbittorrent-nox.service        
                 # wget qbittorrent-nox for x86_64
                 wget -qO /usr/bin/qbittorrent-nox https://github.com/userdocs/qbittorrent-nox-static/releases/latest/download/x86_64-qbittorrent-nox 
@@ -109,11 +109,11 @@ do
       -z|--qbittorrent-public-zones-ssl)
                 qbittorrent_public_zones="$2"
                 echo your public zones is:$qbittorrent_public_zones , your qbittorrent port is $qbittorrent_port.
-                unzip -q /root/PT_use/config/nginxconfig/cert/certqbittorrent/*.zip -d /root/PT_use/config/nginxconfig/cert/certqbittorrent
-                mv /root/PT_use/config/nginxconfig/cert/certqbittorrent/*.key /etc/nginx/cert/$qbittorrent_public_zones.key
-                mv /root/PT_use/config/nginxconfig/cert/certqbittorrent/*.pem /etc/nginx/cert/$qbittorrent_public_zones.cert
-                cp -rf /root/PT_use/config/nginxconfig/sites-available/default /etc/nginx/sites-available/default
-                cp /root/PT_use/config/nginxconfig/sites-available/qbittorrent-nox.conf /etc/nginx/sites-available/qbittorrent-nox.conf
+                unzip -q /root/PT-use-tool/config/nginxconfig/cert/certqbittorrent/*.zip -d /root/PT-use-tool/config/nginxconfig/cert/certqbittorrent
+                mv /root/PT-use-tool/config/nginxconfig/cert/certqbittorrent/*.key /etc/nginx/cert/$qbittorrent_public_zones.key
+                mv /root/PT-use-tool/config/nginxconfig/cert/certqbittorrent/*.pem /etc/nginx/cert/$qbittorrent_public_zones.cert
+                cp -rf /root/PT-use-tool/config/nginxconfig/sites-available/default /etc/nginx/sites-available/default
+                cp /root/PT-use-tool/config/nginxconfig/sites-available/qbittorrent-nox.conf /etc/nginx/sites-available/qbittorrent-nox.conf
                 # config qbittorrent_public_zones
                 sed -i "s/your_public_zones/$qbittorrent_public_zones/g;s?9999?$qbittorrent_port?g" /etc/nginx/sites-available/qbittorrent-nox.conf
                 # set ln -s
@@ -164,10 +164,10 @@ do
                 ;;
       -Z|--FolderMagic-public-zones-ssl) 
                 FolderMagic_public_zones="$2"
-                unzip -q /root/PT_use/config/nginxconfig/cert/certFolderMagic/*.zip -d /root/PT_use/config/nginxconfig/cert/certFolderMagic
-                mv /root/PT_use/config/nginxconfig/cert/certFolderMagic/*.key /etc/nginx/cert/$FolderMagic_public_zones.key
-                mv /root/PT_use/config/nginxconfig/cert/certFolderMagic/*.pem /etc/nginx/cert/$FolderMagic_public_zones.cert
-                cp /root/PT_use/config/nginxconfig/sites-available/FolderMagic.conf /etc/nginx/sites-available/FolderMagic.conf
+                unzip -q /root/PT-use-tool/config/nginxconfig/cert/certFolderMagic/*.zip -d /root/PT-use-tool/config/nginxconfig/cert/certFolderMagic
+                mv /root/PT-use-tool/config/nginxconfig/cert/certFolderMagic/*.key /etc/nginx/cert/$FolderMagic_public_zones.key
+                mv /root/PT-use-tool/config/nginxconfig/cert/certFolderMagic/*.pem /etc/nginx/cert/$FolderMagic_public_zones.cert
+                cp /root/PT-use-tool/config/nginxconfig/sites-available/FolderMagic.conf /etc/nginx/sites-available/FolderMagic.conf
                 # config FolderMagic_public_zones
                 sed -i "s/your_public_zones/$FolderMagic_public_zones/g;s?10000?$FolderMagic_port?g" /etc/nginx/sites-available/FolderMagic.conf
                 # set ln -s
@@ -184,7 +184,7 @@ do
 
                 ufw allow $FolderMagic_port/tcp
                 mkdir /root/FolderMagic
-                cp /root/PT_use/config/FolderMagic.service /etc/systemd/system/FolderMagic.service
+                cp /root/PT-use-tool/config/FolderMagic.service /etc/systemd/system/FolderMagic.service
                 sed -i "s/10000/$FolderMagic_port/g;s?/root/Drive?$FolderMagic_save?g;s?account?$FolderMagic_account?g;s?passward?$FolderMagic_passward?g" /etc/systemd/system/FolderMagic.service
                 wget -qO /root/FolderMagic/FolderMagic https://github.com/FolderMagic/FolderMagic/blob/master/FolderMagic?raw=true
                 chmod +x /root/FolderMagic/FolderMagic
@@ -287,7 +287,7 @@ do
                 usage
                 ;;
       -v|--version)
-                echo PT_use version v1.0.0
+                echo PT-use-tool version v1.0.0
                 ;;   
       --)
                 shift

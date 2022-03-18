@@ -1,4 +1,4 @@
-# PT_use_en
+# PT-use-tool_en
 
 ## 0 Summary
 
@@ -47,7 +47,7 @@ Please use root !
 apt update -y && apt upgrade -y &&apt install vim sudo tmux ufw git curl wget zip unzip net-tools -y && ufw --force enable && echo finish!
 
 # set alias command to set alias
-echo "alias ptuse='/root/PT_use/ptuse.sh'" >> /root/.bashrc && source /root/.bashrc
+echo "alias ptuse='/root/PT-use-tool/ptuse.sh'" >> /root/.bashrc && source /root/.bashrc
 ```
 
 ### 2.2 Use guide
@@ -72,7 +72,7 @@ Please change the password as soon as possible.
 
 **！！First of all,please do DNS(domain name resolution) .**
 
-**！！And then put your SSL .zip file (nginx version) in   /root/PT_use/config/nginxconfig/cert/certqbittorrent/**
+**！！And then put your SSL .zip file (nginx version) in   /root/PT-use-tool/config/nginxconfig/cert/certqbittorrent/**
 
 
 
@@ -119,7 +119,7 @@ then
 
 **！！First of all,please do DNS(domain name resolution) .**
 
-**！！And then put your SSL .zip file (nginx version) in   /root/PT_use/config/nginxconfig/cert/certFolderMagic**
+**！！And then put your SSL .zip file (nginx version) in   /root/PT-use-tool/config/nginxconfig/cert/certFolderMagic**
 
 ```shell
 # set FolderMagic Domain Name and SSL
