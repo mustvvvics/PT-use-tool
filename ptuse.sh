@@ -17,7 +17,7 @@ echo "-b, --basic-install                      basic config,port:9999，save dir
 echo ""
 echo "-p, --qbittorrent-port                   set qbittorrent-nox port, eg: ptuse -p 9999"
 echo ""
-echo "-s, --qbittorrent-save      		     set qbittorrent-nox save directory, eg: ptuse -s /root/Download/qbittorrent"
+echo "-s, --qbittorrent-save                   set qbittorrent-nox save directory, eg: ptuse -s /root/Download/qbittorrent"
 echo ""
 echo "-q, --qbittorrent-install                install qbittorrent-nox"
 echo ""
