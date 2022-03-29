@@ -208,7 +208,7 @@ ptuse --remove-trans
 
 -m, --FolderMagic                        set FolderMagic passward and configure FolderMagic, eg: ptuse -m FolderMagic_passward
 
--t,--transmission-install                install transmission and set your pt tracker
+-t,--transmission-install                install transmission and set your pt tracker.  eg: ptuse -t your_pt_tracker
 
 --trans                                  use transmission-create to make torrent.  eg: ptuse --trans your_file_name
 
