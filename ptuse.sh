@@ -133,7 +133,7 @@ do
       -f|--flexget-install-config)
                 ufw allow 5050/tcp
                 your_flexgetwebui_passward="$2"
-                docker run -d --name=flexget -p 5050:5050 -v /root/.config/flexget/data:/data -v /root/.config/flexget/config:/config -e FG_WEBUI_PASSWD=$your_flexgetwebui_passward -e FG_LOG_LEVEL=info -e FG_LOG_FILE=flexget.log -e PUID=0  -e PGID=0 -e TZ=Asia/Shanghai wiserain/flexget
+                docker run -d --name=flexget --restart=unless-stopped -p 5050:5050 -v /root/.config/flexget/data:/data -v /root/.config/flexget/config:/config -e FG_WEBUI_PASSWD=$your_flexgetwebui_passward -e FG_LOG_LEVEL=info -e FG_LOG_FILE=flexget.log -e PUID=0  -e PGID=0 -e TZ=Asia/Shanghai wiserain/flexget
                 echo Now you can set your rss rule in \' ip:5050 \' ,
                 echo and your user:flexget passward:$your_flexgetwebui_passward
                 shift
