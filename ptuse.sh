@@ -143,8 +143,8 @@ do
                 wget -P /root/BaiduPCS https://github.com/qjfoidnh/BaiduPCS-Go/releases/download/v3.8.7/BaiduPCS-Go-v3.8.7-linux-amd64.zip
                 unzip /root/BaiduPCS/*.zip -d /root/BaiduPCS/ && rm -rf /root/BaiduPCS/*.zip
                 mv /root/BaiduPCS/* /root/BaiduPCS/baidu
-                echo "alias baidu='/root/BaiduPCS/baidu/BaiduPCS-Go'" >> /root/.bashrc
-                source /root/.bashrc
+                # echo "alias baidu='/root/BaiduPCS/baidu/BaiduPCS-Go'" >> /root/.bashrc
+                # source /root/.bashrc
                 ;;
       # -P port
       -P|--FolderMagic-port)
