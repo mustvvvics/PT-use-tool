@@ -63,6 +63,8 @@ git clone https://github.com/mustvvvics/PT-use-tool.git
 
 # set alias command 设置alias指令，方便使用脚本
 echo "alias ptuse='/root/PT-use-tool/ptuse.sh'" >> /root/.bashrc && source /root/.bashrc
+# 给予权限 Permission
+chmod 777 ptuse.sh
 ```
 
 ### 2.2 使用指南
