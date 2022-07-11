@@ -125,6 +125,8 @@ ptuse -d -f your_flexgetwebui_passward
 ```shell
 # BaiduPCS-Go install
 ptuse --baidu
+# 设置快捷指令
+echo "alias baidu='/root/BaiduPCS/baidu/BaiduPCS-Go'" >> /root/.bashrc && source /root/.bashrc
 ```
 
 使用指南 / operating guide : https://github.com/qjfoidnh/BaiduPCS-Go
