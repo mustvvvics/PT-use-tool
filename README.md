@@ -12,7 +12,8 @@
 
 | vendor | info                                 |
 | ------ | ------------------------------------ |
-| buyvm  | Debian 11 , amd64 , x86_64 GNU/Linux |
+| buyvm     | Linux localhost 5.10.0-11-amd64 #1 SMP Debian 5.10.92-2 (2022-02-28) x86_64 GNU/Linux |
+| hosthatch | Linux localhost 4.19.0-21-amd64 #1 SMP Debian 4.19.249-2 (2022-06-30) x86_64 GNU/Linux|
 |        |                                      |
 
 
@@ -58,13 +59,12 @@ https://github.com/chaifeng/ufw-docker
 # update and install some requirement and open the ufw
 apt update -y && apt upgrade -y &&apt install vim sudo tmux ufw git curl wget zip unzip net-tools -y && ufw --force enable && echo finish!
 
-# 下载本项目到/root
-git clone https://github.com/mustvvvics/PT-use-tool.git
+# 下载本项目到/root && 给予权限 Permission
+git clone https://github.com/mustvvvics/PT-use-tool.git && chmod 777 /root/PT-use-tool/ptuse.sh
 
 # set alias command 设置alias指令，方便使用脚本
 echo "alias ptuse='/root/PT-use-tool/ptuse.sh'" >> /root/.bashrc && source /root/.bashrc
-# 给予权限 Permission
-chmod 777 ptuse.sh
+
 ```
 
 ### 2.2 使用指南
