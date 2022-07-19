@@ -107,6 +107,22 @@ ptuse -p 11111 -n -z your_public_zones
 
 现在你可以通过访问你设置域名，来进入qbittorrent Web UI。
 
+⭐通过ufw管理暴露的端口
+
+```bash
+# 启动ufw
+ufw enable 
+# 关闭ufw
+ufw disable 
+# 添加规则 放行80和443端口 用于域名解析
+ufw allow 80
+ufw allow 443
+# 删除规则
+# e.g.  ufw delete 80
+# 查看当前设定的规则
+ufw status
+```
+
 #### 2.2.3 docker flexget 的安装
 
 ```shell
