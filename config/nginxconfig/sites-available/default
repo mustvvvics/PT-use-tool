@@ -3,7 +3,7 @@ server {
         listen 80 default_server;
         listen [::]:80 default_server;
         # let default_server return 444
-        return 404;
+        return 444;
 
         root /var/www/html;
         index index.html index.htm index.nginx-debian.html;
