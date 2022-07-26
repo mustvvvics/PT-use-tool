@@ -53,18 +53,17 @@ https://github.com/chaifeng/ufw-docker
 
 ### 2.1 一些准备
 
-!请切换到root用户使用
+⭐请切换到root用户使用
 
 ```shell
-# update and install some requirement and open the ufw
+# 更新与下载一些包 | update and install some requirement and open the ufw
 apt update -y && apt upgrade -y &&apt install vim sudo tmux ufw git curl wget zip unzip net-tools -y && ufw --force enable && echo finish!
 
 # 下载本项目到/root && 给予权限 Permission
 git clone https://github.com/mustvvvics/PT-use-tool.git && chmod 777 /root/PT-use-tool/ptuse.sh
 
-# set alias command 设置alias指令，方便使用脚本
+# 设置alias指令，方便使用脚本 | set alias command 
 echo "alias ptuse='/root/PT-use-tool/ptuse.sh'" >> /root/.bashrc && source /root/.bashrc
-
 ```
 
 ### 2.2 使用指南
@@ -83,17 +82,17 @@ ptuse -p 11111 -s /root/Download -q
 
 
 
-现在你可以通过访问 ip:port ，来进入qbittorrent Web UI 。**默认账号admin 密码adminadmin 。**
+⭐现在你可以通过访问 ip:port ，来进入qbittorrent Web UI 。**默认账号admin 密码adminadmin 。**
 
-**请立刻登录并修改账号密码。**
+⭐**请立刻登录并修改账号密码。**
 
-#### 2.2.2 为qbittorrent Web UI 设置域名与ssl证书 
+#### 2.2.2 为qbittorrent Web UI 设置域名与ssl证书
 
 
 
-**！！先进行域名解析。**
+⭐**请先进行域名解析。**
 
-**！！并将ssl证书的zip压缩包(nginx 版本)，使用XFTP等软件，或者使用scp命令，放在服务器的 /root/PT-use-tool/config/nginxconfig/cert/certqbittorrent/**
+⭐**并将ssl证书的zip压缩包(nginx 版本)，使用XFTP等软件，或者使用scp命令，放在服务器的 /root/PT-use-tool/config/nginxconfig/cert/certqbittorrent/**
 
 
 
@@ -105,7 +104,7 @@ ptuse -b -z your_public_zones
 ptuse -p 11111 -n -z your_public_zones
 ```
 
-现在你可以通过访问你设置域名，来进入qbittorrent Web UI。
+⭐现在你可以通过访问你设置域名，来进入qbittorrent Web UI。
 
 ⭐通过ufw管理暴露的端口
 
@@ -130,9 +129,11 @@ ufw status
 ptuse -d -f your_flexgetwebui_passward
 ```
 
-现在你可以通过访问 ip:5050 来进入flexget 设置 RSS 的页面进行rss的配置。默认账号为flexget，密码为你自己设置的your_flexgetwebui_passward。
+⭐现在你可以通过访问 ip:5050 来进入flexget 设置 RSS 的页面进行rss的配置。
 
-**同时记得修改qbittorrent Web UI 中的监控文件夹地址为：/root/.config/flexget/data**
+⭐默认账号为flexget，密码为你自己设置的your_flexgetwebui_passward。
+
+⭐**同时记得修改qbittorrent Web UI 中的监控文件夹地址为：/root/.config/flexget/data**
 
 
 
@@ -162,9 +163,9 @@ ptuse -P 10001 -S /root/share -A FolderMagic_account -m FolderMagic_passward
 
 如果需要用到域名访问。那么，
 
-**！！先进行域名解析。**
+⭐**先进行域名解析。**
 
-**！！并将ssl证书的zip压缩包(nginx 版本)，放在服务器的 /root/PT-use-tool/config/nginxconfig/cert/certFolderMagic**
+⭐**并将ssl证书的zip压缩包(nginx 版本)，放在服务器的 /root/PT-use-tool/config/nginxconfig/cert/certFolderMagic**
 
 注意与上面的qbittorrent 位置不同
 

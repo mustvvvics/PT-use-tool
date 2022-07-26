@@ -46,6 +46,9 @@ Please use root !
 # update and install some requirement and open the ufw
 apt update -y && apt upgrade -y &&apt install vim sudo tmux ufw git curl wget zip unzip net-tools -y && ufw --force enable && echo finish!
 
+# down the project to /root && and give Permission
+git clone https://github.com/mustvvvics/PT-use-tool.git && chmod 777 /root/PT-use-tool/ptuse.sh
+
 # set alias command to set alias
 echo "alias ptuse='/root/PT-use-tool/ptuse.sh'" >> /root/.bashrc && source /root/.bashrc
 ```
