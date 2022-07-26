@@ -117,7 +117,7 @@ ufw disable
 ufw allow 80
 ufw allow 443
 # 删除规则
-# e.g.  ufw delete 80
+# e.g.  ufw delete allow 80
 # 查看当前设定的规则
 ufw status
 ```
