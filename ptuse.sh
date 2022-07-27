@@ -199,7 +199,7 @@ do
                 your_pt_tracker="$2"
                 touch /root/.pt_tracker
                 echo "$your_pt_tracker" > /root/.pt_tracker
-                apt install transmission-daemon transmission-cli -y
+                apt install transmission-daemon transmission-cli mediainfo -y
                 service transmission-daemon start
                 echo install transmission finish！
                 echo "your pt tracker which in /root/.pt_tracker is:"
@@ -213,7 +213,7 @@ do
                 shift
                 ;;   
       --remove-trans)  
-                apt remove transmission-daemon transmission-cli -y
+                apt remove transmission-daemon transmission-cli mediainfo -y
                 rm -rf /root/.pt_tracker
                 echo transmission finish!
                 ;;

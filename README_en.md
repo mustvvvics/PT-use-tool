@@ -129,7 +129,22 @@ then
 ptuse -P 10001 -Z your_public_zones
 ```
 
-#### 2.2.6 remove
+#### 2.2.6 make torrent
+
+```bash
+# down transmission and set tracker
+ptuse -t your_pt_tracker
+
+# creat torrent, will make xxxxx.S01.1080p.WEB-DL.H264.AC3.torrent 
+ptuse --trans xxxxx.S01.1080p.WEB-DL.H264.AC3
+
+# View information about a file
+mediainfo media_file_name
+```
+
+
+
+#### 2.2.7 remove
 
 ```shell
 # remove qbittorrent

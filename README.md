@@ -174,7 +174,20 @@ ptuse -P 10001 -S /root/share -A FolderMagic_account -m FolderMagic_passward
 ptuse -P 10001 -Z your_public_zones
 ```
 
-#### 2.2.6 卸载remove
+#### 2.2.6 制作种子
+
+```bash
+# 下载 transmission 以及设置tracker
+ptuse -t your_pt_tracker
+
+# 创建种子文件 会生成 xxxxx.S01.1080p.WEB-DL.H264.AC3.torrent 
+ptuse --trans xxxxx.S01.1080p.WEB-DL.H264.AC3
+
+# 查看一个文件的信息
+mediainfo media_file_name
+```
+
+#### 2.2.7 卸载remove
 
 ```shell
 # remove qbittorrent
