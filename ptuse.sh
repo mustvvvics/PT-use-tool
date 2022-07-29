@@ -93,7 +93,8 @@ do
       -q|--qbittorrent-install)
                 ufw allow $qbittorrent_port/tcp
                 cp /root/PT-use-tool/config/qbittorrent-nox.service /etc/systemd/system/qbittorrent-nox.service
-                sed -i "6s/9999/$qbittorrent_port/1;6s?/root/Download/qbittorrent?$savepath?1" /etc/systemd/system/qbittorrent-nox.service        
+                sed -i "6s/9999/$qbittorrent_port/1;6s?/root/Download/qbittorrent?$savepath?1" /etc/systemd/system/qbittorrent-nox.service
+                echo download qbittorrent-nox...        
                 # wget qbittorrent-nox for x86_64
                 wget -qO /usr/bin/qbittorrent-nox https://github.com/userdocs/qbittorrent-nox-static/releases/latest/download/x86_64-qbittorrent-nox 
                 chmod 700 /usr/bin/qbittorrent-nox 
