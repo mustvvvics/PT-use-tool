@@ -96,7 +96,7 @@ do
                 sed -i "6s/9999/$qbittorrent_port/1;6s?/root/Download/qbittorrent?$savepath?1" /etc/systemd/system/qbittorrent-nox.service
                 echo download qbittorrent-nox...        
                 # wget qbittorrent-nox for x86_64
-                wget -qO /usr/bin/qbittorrent-nox https://github.com/userdocs/qbittorrent-nox-static/releases/latest/download/x86_64-qbittorrent-nox 
+                wget -qO /usr/bin/qbittorrent-nox https://github.com/userdocs/qbittorrent-nox-static/releases/download/release-4.4.5_v2.0.8/x86_64-qbittorrent-nox
                 chmod 700 /usr/bin/qbittorrent-nox 
                 systemctl daemon-reload && systemctl enable qbittorrent-nox && systemctl start qbittorrent-nox && systemctl status qbittorrent-nox
                 ;;
