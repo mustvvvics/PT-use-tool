@@ -213,7 +213,28 @@ ptuse -P 10001 --remove-m
 ptuse --remove-trans
 ```
 
-## 3 功能选项
+## 3 证书更新、
+
+```shell
+# 假设你的端口为9999 你的域名为xxxxxx.com
+
+# 先把nginx证书的zip文件放置于当前目录下，并在当前目录下执行以下操作。
+
+# 对于qbittorrent
+rm -rf /root/PT-use-tool/config/nginxconfig/cert/certqbittorrent/*zip && mv *.zip /root/PT-use-tool/config/nginxconfig/cert/certqbittorrent/ && ptuse -p 9999 -z xxxxxx.com
+
+# 对于FolderMagic（注意与上方区分大小写）
+rm -rf /root/PT-use-tool/config/nginxconfig/cert/certFolderMagic/*zip && mv *.zip /root/PT-use-tool/config/nginxconfig/cert/certFolderMagic && ptuse -P 9999 -Z xxxxxx.com
+
+## 操作逻辑：删除当前旧目录zip,移动当前目录zip到指定目录，使用ptuse的功能去完成文件移动命名与更新
+
+## 会报错 ln: failed to create symbolic link '/etc/nginx/sites-enabled/FolderMagic.conf': File exists （因为之前使用ptuse已经执行过此操作）
+## 但只要 nginx -t 测试成功即可
+## nginx: the configuration file /etc/nginx/nginx.conf syntax is ok
+## nginx: configuration file /etc/nginx/nginx.conf test is successful
+```
+
+## 4 功能选项
 
 ```shell
 -b, --basic-install                      basic config,port:9999，save directory:/root/Download/qbittorrent
