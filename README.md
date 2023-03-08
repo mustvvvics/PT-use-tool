@@ -2,8 +2,6 @@
 
 
 
-
-
 ## 0 介绍
 
 （水平有限脚本粗糙, 作为学习记录）
@@ -55,58 +53,25 @@ https://github.com/chaifeng/ufw-docker
 
 ⭐请切换到root用户使用
 
+1# 更新与下载一些包
+
 ```shell
-# 更新与下载一些包 | update and install some requirement and open the ufw
-apt update -y && apt upgrade -y &&apt install vim sudo tmux ufw git curl wget zip unzip net-tools -y && ufw --force enable && echo finish!
+apt update -y && apt upgrade -y && apt install vim sudo tmux ufw git curl wget zip unzip net-tools -y && ufw --force enable && echo finish!
+```
+2# 下载本项目到 /root && 给予权限
 
-# 下载本项目到/root && 给予权限 Permission
+```shell
 git clone https://github.com/mustvvvics/PT-use-tool.git && chmod 777 /root/PT-use-tool/ptuse.sh
+```
 
-# 设置alias指令，方便使用脚本 | set alias command 
+3# 设置alias指令，方便使用脚本
+
+```shell
 echo "alias ptuse='/root/PT-use-tool/ptuse.sh'" >> /root/.bashrc && source /root/.bashrc
 ```
 
-### 2.2 使用指南
 
-#### 2.2.1 安装qbittorrent-nox  
-
-
-
-```shell
-# default install   默认使用 9999 and /root/Download/qbittorrent
-ptuse -bq
-
-# use your port and save dir 
-ptuse -p 11111 -s /root/Download -q
-```
-
-
-
-⭐现在你可以通过访问 ip:port ，来进入qbittorrent Web UI 。**默认账号admin 密码adminadmin 。**
-
-⭐**请立刻登录并修改账号密码。**
-
-#### 2.2.2 为qbittorrent Web UI 设置域名与ssl证书
-
-
-
-⭐**请先进行域名解析。**
-
-⭐**并将ssl证书的zip压缩包(nginx 版本)，使用XFTP等软件，或者使用scp命令，放在服务器的 /root/PT-use-tool/config/nginxconfig/cert/certqbittorrent/**
-
-
-
-```shell
-# default set 
-ptuse -b -z your_public_zones
-
-# use your port
-ptuse -p 11111 -n -z your_public_zones
-```
-
-⭐现在你可以通过访问你设置域名，来进入qbittorrent Web UI。
-
-⭐通过ufw管理暴露的端口
+⭐其中通过ufw管理暴露的端口（若不需要，则 apt install 中不安装 ufw）
 
 ```bash
 # 启动ufw
@@ -122,10 +87,58 @@ ufw allow 443
 ufw status
 ```
 
-#### 2.2.3 docker flexget 的安装
+
+
+### 2.2 使用指南
+
+#### 2.2.1 安装qbittorrent-nox  
+
+1# default install   默认使用 9999 与 /root/Download/qbittorrent
 
 ```shell
-# docker flexget install
+ptuse -bq
+```
+
+2# use your port and save dir 
+```shell
+ptuse -p 11111 -s /root/Download -q
+```
+
+
+⭐现在你可以通过访问 ip:port ，来进入qbittorrent Web UI 。**默认账号admin 密码adminadmin 。**
+
+⭐**请立刻登录并修改账号密码。**
+
+
+
+#### 2.2.2 为qbittorrent Web UI 设置域名与ssl证书
+
+⭐**请先进行域名解析。**
+
+⭐**并将ssl证书的zip压缩包(nginx 版本)，使用XFTP等软件，或者使用scp命令，放在服务器的 
+
+```bash
+/root/PT-use-tool/config/nginxconfig/cert/certqbittorrent/
+```
+
+1# 配置证书 default set 
+
+```shell
+ptuse -b -z your_public_zones
+```
+2# 或使用你自己指定的端口 use your port
+```shell
+ptuse -p 11111 -n -z your_public_zones
+```
+
+⭐现在你可以通过访问你设置域名，来进入qbittorrent Web UI。
+
+
+
+#### 2.2.3 docker flexget 的安装
+
+1# docker flexget install
+```shell
 ptuse -d -f your_flexgetwebui_passward
 ```
 
@@ -139,55 +152,63 @@ ptuse -d -f your_flexgetwebui_passward
 
 #### 2.2.4 BaiduPCS-Go 安装
 
+1# BaiduPCS-Go install
 ```shell
-# BaiduPCS-Go install
 ptuse --baidu
-# 设置快捷指令
+```
+2# 设置快捷指令
+```shell
 echo "alias baidu='/root/BaiduPCS/baidu/BaiduPCS-Go'" >> /root/.bashrc && source /root/.bashrc
 ```
 
-使用指南 / operating guide : https://github.com/qjfoidnh/BaiduPCS-Go
+BaiduPCS-Go使用指南 / operating guide : https://github.com/qjfoidnh/BaiduPCS-Go
 
 
 
 #### 2.2.5 FolderMagic 安装
 
-请设置好自己的共享位置以及账号密码
-
+1# FolderMagic install, 请设置好自己的共享位置以及账号密码
 ```shell
-# FolderMagic install
 ptuse -P 10001 -S /root/share -A FolderMagic_account -m FolderMagic_passward
 ```
-
 
 
 如果需要用到域名访问。那么，
 
 ⭐**先进行域名解析。**
 
-⭐**并将ssl证书的zip压缩包(nginx 版本)，放在服务器的 /root/PT-use-tool/config/nginxconfig/cert/certFolderMagic**
+⭐**并将ssl证书的zip压缩包(nginx 版本)，放在服务器的 **
+
+```bash
+/root/PT-use-tool/config/nginxconfig/cert/certFolderMagic
+```
 
 注意与上面的qbittorrent 位置不同
 
+1# set FolderMagic
 ```shell
-# set FolderMagic
 ptuse -P 10001 -Z your_public_zones
 ```
 
+
+
 #### 2.2.6 制作种子
 
+1# 下载 transmission 以及设置tracker
 ```bash
-# 下载 transmission 以及设置tracker
 ptuse -t your_pt_tracker
-
-# 创建种子文件 会生成 xxxxx.S01.1080p.WEB-DL.H264.AC3.torrent 
+```
+2# 创建种子文件 会生成 xxxxx.S01.1080p.WEB-DL.H264.AC3.torrent 
+```bash
 ptuse --trans xxxxx.S01.1080p.WEB-DL.H264.AC3
-
-# 查看一个文件的信息
+```
+3# 查看一个文件的信息
+```bash
 mediainfo media_file_name
 ```
 
-#### 2.2.7 卸载remove
+
+#### 2.2.7 卸载 remove
 
 ```shell
 # remove qbittorrent
@@ -213,28 +234,34 @@ ptuse -P 10001 --remove-m
 ptuse --remove-trans
 ```
 
-## 3 证书更新、
+## 3 证书更新
+1# 假设你的端口为9999, 你的域名为xxxxxx.com
 
+2# 先把nginx证书的zip文件放置于当前目录下，并在当前目录下执行以下操作。
+
+3# 对于qbittorrent
 ```shell
-# 假设你的端口为9999 你的域名为xxxxxx.com
-
-# 先把nginx证书的zip文件放置于当前目录下，并在当前目录下执行以下操作。
-
-# 对于qbittorrent
 rm -rf /root/PT-use-tool/config/nginxconfig/cert/certqbittorrent/*zip && mv *.zip /root/PT-use-tool/config/nginxconfig/cert/certqbittorrent/ && ptuse -p 9999 -z xxxxxx.com
-
-# 对于FolderMagic（注意与上方区分大小写）
+```
+4# 对于FolderMagic（注意与上方区分大小写）
+```shell
 rm -rf /root/PT-use-tool/config/nginxconfig/cert/certFolderMagic/*zip && mv *.zip /root/PT-use-tool/config/nginxconfig/cert/certFolderMagic && ptuse -P 9999 -Z xxxxxx.com
-
-## 操作逻辑：删除当前旧目录zip,移动当前目录zip到指定目录，使用ptuse的功能去完成文件移动命名与更新
-
-## 会报错 ln: failed to create symbolic link '/etc/nginx/sites-enabled/FolderMagic.conf': File exists （因为之前使用ptuse已经执行过此操作）
-## 但只要 nginx -t 测试成功即可
-## nginx: the configuration file /etc/nginx/nginx.conf syntax is ok
-## nginx: configuration file /etc/nginx/nginx.conf test is successful
 ```
 
-## 4 功能选项
+5# 操作逻辑：删除当前旧目录zip，移动当前目录zip到指定目录，使用ptuse的功能去完成文件移动命名与更新
+
+6# 会报错 ln: failed to create symbolic link '/etc/nginx/sites-enabled/FolderMagic.conf': File exists （因为之前使用ptuse已经执行过此操作）
+7# 但只要 nginx -t 测试成功即可
+
+## 4 所有功能选项
+
+1# 显示帮助
+
+```bash
+ptuse -h
+```
+
+
 
 ```shell
 -b, --basic-install                      basic config,port:9999，save directory:/root/Download/qbittorrent

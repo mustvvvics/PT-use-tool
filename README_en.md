@@ -1,5 +1,7 @@
 # PT-use-tool_en
 
+- Please check Chinese version for the latest update
+
 ## 0 Summary
 
 A convenient PT use deployment.
